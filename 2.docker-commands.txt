@@ -1,0 +1,60 @@
+        Overriding the default command
+
+==================================================
+
+docker run <image_name> <command_to_override> 
+
+By default if you don't specify a command, the default command will be executed once the docker
+container spins up. 
+
+
+        List of running containers
+==================================================
+
+        docker ps --all (List of all containers that's ever been created)
+
+        docker ps -> List of currently running containers
+
+
+==================================================
+
+docker run = docker create container(image name) + docker start container. 
+
+docker create <image_name> -> returns the created container ID.
+
+docker start -a <container_ID> -> Attaches the output of the container to the standard output
+
+docker start <container_ID> -> Doesn't attach any output to standard out. (-a flag binds container stdout
+to the host OS stdout)
+
+==================================================
+
+
+When a stopped container is started again, we can't change it's default startup commmand. 
+It runs with the same command that's been used when running the container for first time.
+
+
+docker system prune ( Deletes all stopped containers, build cache, dangling images)
+
+
+==================================================
+
+        docker stop vs docker kill 
+
+Stop -> Emits SIGTERM signal, allowing the process some time to do clean up. 
+
+Kill -> Emits SIGKILL, asking the process to immediately shut down.
+
+
+===================================================================
+
+        Execute multiple commands inside a container
+
+docker exec -it <container_name/id> <command> (it allows us to type the command inside the container)
+
+-i -> the sole purpose is to redirect the input that we enter to the container processese STDIN.
+
+-t -> this does all the formatting from stdout and stderr to show the data in our terminal
+
+
+====================================================================

@@ -1,0 +1,43 @@
+Namespaces -> Isolating resources per processes. So each process has its own resource that
+              it contacts to.
+
+
+Control groups -> Limiting the amount of resources being used per process. (RAM & CPU)
+
+
+Namespacing and control groups are linux terminologies (When we install docker on our physical
+system, it actually creates a linux OS on our physical OS that manages all the containers. the
+linux OS created has it's own kernel that the containers(individual processes) talk to )
+
+
+        Container-1     Container-2     Container-3
+
+        ============================================
+                        Linux Kernel
+        ============================================
+            |               |                  |
+            |               |                  |
+        =============================================
+                    Linux Virtual Machine
+        =============================================
+                            |
+        =============================================
+                    MacOS / Windows OS 
+        =============================================
+
+        CPU             RAM             DISK SPACE (etc)
+
+
+
+===========================================================================================
+
+
+Forming an container out of an image -> Every image is a file snapshot of the particular process.
+
+So when you try to spin up a container out of an image, the file snapshot will be copied on to the 
+
+hard drive of the control group(container) and the start up command invokes the process and thus starts a container.
+
+============================================================================================
+
+
